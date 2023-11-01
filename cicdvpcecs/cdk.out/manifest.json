@@ -1,0 +1,1026 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "cicd-vpc-ecs-laravel-api": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cicd-vpc-ecs-laravel-api.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapi749191DF",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1Subnet4959D46D",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1RouteTable6A856D4A",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1RouteTableAssociation9CDC28F8",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1DefaultRoute5455EAC9",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:840:23)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:443:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:442:32)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1EIPDD02EE17",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1019:46)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet1NATGateway43AD6FD4",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1017:21)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2SubnetCF5912D2",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2RouteTableC043887E",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2RouteTableAssociation428615AF",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2DefaultRoute42C2C9E8",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:840:23)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:443:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:442:32)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2EIPB6E40FAC",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1019:46)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPublicSubnet2NATGateway8BAF81A5",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1017:21)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet1Subnet1B0D1602",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet1RouteTable6FD2BD2D",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet1RouteTableAssociation43B367BC",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet1DefaultRoute27DDC11B",
+            "trace": [
+              "PrivateSubnet.addRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:890:23)",
+              "NatGatewayProvider.configureSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:119:16)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:113:18)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet2Subnet3D6D7C29",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet2RouteTable75635C77",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet2RouteTableAssociation6DF56727",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiPrivateSubnet2DefaultRoute425AFF7B",
+            "trace": [
+              "PrivateSubnet.addRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:890:23)",
+              "NatGatewayProvider.configureSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:119:16)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:113:18)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiIGW746290A4",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:435:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdvpcnonprodlaravelapiVPCGW899036FE",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:438:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiE6AA3FFE",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1Subnet2889C679",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1RouteTable718E12E5",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1RouteTableAssociation53EE904B",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1DefaultRouteD6DBBFE6",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:840:23)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:443:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:442:32)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1EIPF08C2903",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1019:46)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet1NATGateway4B54F243",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1017:21)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2SubnetFC1DB77D",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2RouteTableE6F0F561",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2RouteTableAssociation53CC7B2E",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PublicSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:987:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:679:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2DefaultRoute2CC216F0",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:840:23)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:443:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:442:32)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2EIP5998FFD8",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1019:46)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPublicSubnet2NATGatewayECA2838A",
+            "trace": [
+              "PublicSubnet.addNatGateway (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1017:21)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:107:33)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet1Subnet31F64209",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet1RouteTable54B8C122",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet1RouteTableAssociation4D52CB65",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet1DefaultRoute2A70E9A6",
+            "trace": [
+              "PrivateSubnet.addRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:890:23)",
+              "NatGatewayProvider.configureSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:119:16)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:113:18)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet2SubnetEF992275",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:783:24)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet2RouteTableE74BD4E5",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:799:23)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet2RouteTableAssociation895219BA",
+            "trace": [
+              "new Subnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:804:9)",
+              "new PrivateSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:1034:9)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:685:43",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:653:32)",
+              "Vpc.createSubnets (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:649:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:431:14)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiPrivateSubnet2DefaultRoute7E72B9E1",
+            "trace": [
+              "PrivateSubnet.addRoute (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:890:23)",
+              "NatGatewayProvider.configureSubnet (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:119:16)",
+              "NatGatewayProvider.configureNat (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/nat.js:113:18)",
+              "Vpc.createNatGateways (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:627:18)",
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:448:22)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiIGW672D4DA3",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:435:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdprodlaravelapiVPCGW22144461",
+            "trace": [
+              "new Vpc (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:438:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-ecs-nonprod-laravel-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdecsnonprodlaravelapi6344C7F0",
+            "trace": [
+              "new Cluster (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ecs/lib/cluster.js:86:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-ecs-nonprod-laravel-api/cicd-ecs-nonprod-laravel-api": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdecsnonprodlaravelapi715A4D72",
+            "trace": [
+              "MaybeCreateCapacityProviderAssociations.visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ecs/lib/cluster.js:656:34)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:86:20)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:98:17)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:98:17)",
+              "invokeAspects (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:72:5)",
+              "Object.synthesize (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmp0gf9dhy4/lib/program.js:7840:105",
+              "Kernel._ensureSync (/tmp/tmp0gf9dhy4/lib/program.js:8423:28)",
+              "Kernel.invoke (/tmp/tmp0gf9dhy4/lib/program.js:7840:34)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-ecs-prod-laravel-api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdecsprodlaravelapi78E5E251",
+            "trace": [
+              "new Cluster (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ecs/lib/cluster.js:86:25)",
+              "Kernel._create (/tmp/tmp0gf9dhy4/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp0gf9dhy4/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/cicd-ecs-prod-laravel-api/cicd-ecs-prod-laravel-api": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cicdecsprodlaravelapi03790523",
+            "trace": [
+              "MaybeCreateCapacityProviderAssociations.visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/aws-ecs/lib/cluster.js:656:34)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:86:20)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:98:17)",
+              "recurse (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:98:17)",
+              "invokeAspects (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:72:5)",
+              "Object.synthesize (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmp0gf9dhy4/lib/program.js:7840:105",
+              "Kernel._ensureSync (/tmp/tmp0gf9dhy4/lib/program.js:8423:28)",
+              "Kernel.invoke (/tmp/tmp0gf9dhy4/lib/program.js:7840:34)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmp0gf9dhy4/lib/program.js:7840:105",
+              "Kernel._ensureSync (/tmp/tmp0gf9dhy4/lib/program.js:8423:28)",
+              "Kernel.invoke (/tmp/tmp0gf9dhy4/lib/program.js:7840:34)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/cicd-vpc-ecs-laravel-api/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-TaNrBK/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmp0gf9dhy4/lib/program.js:7840:105",
+              "Kernel._ensureSync (/tmp/tmp0gf9dhy4/lib/program.js:8423:28)",
+              "Kernel.invoke (/tmp/tmp0gf9dhy4/lib/program.js:7840:34)",
+              "KernelHost.processRequest (/tmp/tmp0gf9dhy4/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp0gf9dhy4/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp0gf9dhy4/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "cicd-vpc-ecs-laravel-api"
+    }
+  }
+}

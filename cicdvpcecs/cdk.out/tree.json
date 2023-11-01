@@ -1,0 +1,1431 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.180.0"
+        }
+      },
+      "cicd-vpc-ecs-laravel-api": {
+        "id": "cicd-vpc-ecs-laravel-api",
+        "path": "cicd-vpc-ecs-laravel-api",
+        "children": {
+          "cicd-vpc-nonprod-laravel-api": {
+            "id": "cicd-vpc-nonprod-laravel-api",
+            "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
+                  "aws:cdk:cloudformation:props": {
+                    "cidrBlock": "10.0.0.0/16",
+                    "enableDnsHostnames": true,
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default",
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnVPC",
+                  "version": "1.180.0"
+                }
+              },
+              "PublicSubnet1": {
+                "id": "PublicSubnet1",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            0,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.0.0/18",
+                        "mapPublicIpOnLaunch": true,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet1RouteTable6A856D4A"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet1Subnet4959D46D"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet1RouteTable6A856D4A"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "gatewayId": {
+                          "Ref": "cicdvpcnonprodlaravelapiIGW746290A4"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "EIP": {
+                    "id": "EIP",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/EIP",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+                      "aws:cdk:cloudformation:props": {
+                        "domain": "vpc",
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnEIP",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "NATGateway": {
+                    "id": "NATGateway",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1/NATGateway",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+                      "aws:cdk:cloudformation:props": {
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet1Subnet4959D46D"
+                        },
+                        "allocationId": {
+                          "Fn::GetAtt": [
+                            "cicdvpcnonprodlaravelapiPublicSubnet1EIPDD02EE17",
+                            "AllocationId"
+                          ]
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PublicSubnet2": {
+                "id": "PublicSubnet2",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.64.0/18",
+                        "mapPublicIpOnLaunch": true,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet2RouteTableC043887E"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet2SubnetCF5912D2"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet2RouteTableC043887E"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "gatewayId": {
+                          "Ref": "cicdvpcnonprodlaravelapiIGW746290A4"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "EIP": {
+                    "id": "EIP",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/EIP",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+                      "aws:cdk:cloudformation:props": {
+                        "domain": "vpc",
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnEIP",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "NATGateway": {
+                    "id": "NATGateway",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2/NATGateway",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+                      "aws:cdk:cloudformation:props": {
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet2SubnetCF5912D2"
+                        },
+                        "allocationId": {
+                          "Fn::GetAtt": [
+                            "cicdvpcnonprodlaravelapiPublicSubnet2EIPB6E40FAC",
+                            "AllocationId"
+                          ]
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PrivateSubnet1": {
+                "id": "PrivateSubnet1",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            0,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.128.0/18",
+                        "mapPublicIpOnLaunch": false,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet1RouteTable6FD2BD2D"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet1Subnet1B0D1602"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet1/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet1RouteTable6FD2BD2D"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "natGatewayId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet1NATGateway43AD6FD4"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PrivateSubnet2": {
+                "id": "PrivateSubnet2",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.192.0/18",
+                        "mapPublicIpOnLaunch": false,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet2RouteTable75635C77"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet2Subnet3D6D7C29"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/PrivateSubnet2/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPrivateSubnet2RouteTable75635C77"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "natGatewayId": {
+                          "Ref": "cicdvpcnonprodlaravelapiPublicSubnet2NATGateway8BAF81A5"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "IGW": {
+                "id": "IGW",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/IGW",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
+                  "aws:cdk:cloudformation:props": {
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnInternetGateway",
+                  "version": "1.180.0"
+                }
+              },
+              "VPCGW": {
+                "id": "VPCGW",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-vpc-nonprod-laravel-api/VPCGW",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
+                  "aws:cdk:cloudformation:props": {
+                    "vpcId": {
+                      "Ref": "cicdvpcnonprodlaravelapi749191DF"
+                    },
+                    "internetGatewayId": {
+                      "Ref": "cicdvpcnonprodlaravelapiIGW746290A4"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnVPCGatewayAttachment",
+                  "version": "1.180.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-ec2.Vpc",
+              "version": "1.180.0"
+            }
+          },
+          "cicd-prod-laravel-api": {
+            "id": "cicd-prod-laravel-api",
+            "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
+                  "aws:cdk:cloudformation:props": {
+                    "cidrBlock": "10.0.0.0/16",
+                    "enableDnsHostnames": true,
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default",
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnVPC",
+                  "version": "1.180.0"
+                }
+              },
+              "PublicSubnet1": {
+                "id": "PublicSubnet1",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            0,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.0.0/18",
+                        "mapPublicIpOnLaunch": true,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet1RouteTable718E12E5"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet1Subnet2889C679"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet1RouteTable718E12E5"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "gatewayId": {
+                          "Ref": "cicdprodlaravelapiIGW672D4DA3"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "EIP": {
+                    "id": "EIP",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/EIP",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+                      "aws:cdk:cloudformation:props": {
+                        "domain": "vpc",
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnEIP",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "NATGateway": {
+                    "id": "NATGateway",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1/NATGateway",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+                      "aws:cdk:cloudformation:props": {
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet1Subnet2889C679"
+                        },
+                        "allocationId": {
+                          "Fn::GetAtt": [
+                            "cicdprodlaravelapiPublicSubnet1EIPF08C2903",
+                            "AllocationId"
+                          ]
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PublicSubnet2": {
+                "id": "PublicSubnet2",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.64.0/18",
+                        "mapPublicIpOnLaunch": true,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Public"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet2RouteTableE6F0F561"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet2SubnetFC1DB77D"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet2RouteTableE6F0F561"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "gatewayId": {
+                          "Ref": "cicdprodlaravelapiIGW672D4DA3"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "EIP": {
+                    "id": "EIP",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/EIP",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
+                      "aws:cdk:cloudformation:props": {
+                        "domain": "vpc",
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnEIP",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "NATGateway": {
+                    "id": "NATGateway",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2/NATGateway",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
+                      "aws:cdk:cloudformation:props": {
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet2SubnetFC1DB77D"
+                        },
+                        "allocationId": {
+                          "Fn::GetAtt": [
+                            "cicdprodlaravelapiPublicSubnet2EIP5998FFD8",
+                            "AllocationId"
+                          ]
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PublicSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PrivateSubnet1": {
+                "id": "PrivateSubnet1",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            0,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.128.0/18",
+                        "mapPublicIpOnLaunch": false,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet1RouteTable54B8C122"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet1Subnet31F64209"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet1/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet1RouteTable54B8C122"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "natGatewayId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet1NATGateway4B54F243"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "PrivateSubnet2": {
+                "id": "PrivateSubnet2",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2",
+                "children": {
+                  "Subnet": {
+                    "id": "Subnet",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/Subnet",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "availabilityZone": {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::GetAZs": ""
+                            }
+                          ]
+                        },
+                        "cidrBlock": "10.0.192.0/18",
+                        "mapPublicIpOnLaunch": false,
+                        "tags": [
+                          {
+                            "key": "aws-cdk:subnet-name",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "aws-cdk:subnet-type",
+                            "value": "Private"
+                          },
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "Acl": {
+                    "id": "Acl",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/Acl",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTable": {
+                    "id": "RouteTable",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/RouteTable",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
+                      "aws:cdk:cloudformation:props": {
+                        "vpcId": {
+                          "Ref": "cicdprodlaravelapiE6AA3FFE"
+                        },
+                        "tags": [
+                          {
+                            "key": "Name",
+                            "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "RouteTableAssociation": {
+                    "id": "RouteTableAssociation",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/RouteTableAssociation",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet2RouteTableE74BD4E5"
+                        },
+                        "subnetId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet2SubnetEF992275"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
+                      "version": "1.180.0"
+                    }
+                  },
+                  "DefaultRoute": {
+                    "id": "DefaultRoute",
+                    "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/PrivateSubnet2/DefaultRoute",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "routeTableId": {
+                          "Ref": "cicdprodlaravelapiPrivateSubnet2RouteTableE74BD4E5"
+                        },
+                        "destinationCidrBlock": "0.0.0.0/0",
+                        "natGatewayId": {
+                          "Ref": "cicdprodlaravelapiPublicSubnet2NATGatewayECA2838A"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-ec2.CfnRoute",
+                      "version": "1.180.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
+                  "version": "1.180.0"
+                }
+              },
+              "IGW": {
+                "id": "IGW",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/IGW",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
+                  "aws:cdk:cloudformation:props": {
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnInternetGateway",
+                  "version": "1.180.0"
+                }
+              },
+              "VPCGW": {
+                "id": "VPCGW",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-prod-laravel-api/VPCGW",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
+                  "aws:cdk:cloudformation:props": {
+                    "vpcId": {
+                      "Ref": "cicdprodlaravelapiE6AA3FFE"
+                    },
+                    "internetGatewayId": {
+                      "Ref": "cicdprodlaravelapiIGW672D4DA3"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ec2.CfnVPCGatewayAttachment",
+                  "version": "1.180.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-ec2.Vpc",
+              "version": "1.180.0"
+            }
+          },
+          "cicd-ecs-nonprod-laravel-api": {
+            "id": "cicd-ecs-nonprod-laravel-api",
+            "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-nonprod-laravel-api",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-nonprod-laravel-api/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ECS::Cluster",
+                  "aws:cdk:cloudformation:props": {
+                    "clusterName": "cicd-ecs-nonprod-laravel-api"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ecs.CfnCluster",
+                  "version": "1.180.0"
+                }
+              },
+              "cicd-ecs-nonprod-laravel-api": {
+                "id": "cicd-ecs-nonprod-laravel-api",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-nonprod-laravel-api/cicd-ecs-nonprod-laravel-api",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ECS::ClusterCapacityProviderAssociations",
+                  "aws:cdk:cloudformation:props": {
+                    "capacityProviders": [
+                      "FARGATE"
+                    ],
+                    "cluster": {
+                      "Ref": "cicdecsnonprodlaravelapi6344C7F0"
+                    },
+                    "defaultCapacityProviderStrategy": []
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ecs.CfnClusterCapacityProviderAssociations",
+                  "version": "1.180.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-ecs.Cluster",
+              "version": "1.180.0"
+            }
+          },
+          "cicd-ecs-prod-laravel-api": {
+            "id": "cicd-ecs-prod-laravel-api",
+            "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-prod-laravel-api",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-prod-laravel-api/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ECS::Cluster",
+                  "aws:cdk:cloudformation:props": {
+                    "clusterName": "cicd-ecs-prod-laravel-api"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ecs.CfnCluster",
+                  "version": "1.180.0"
+                }
+              },
+              "cicd-ecs-prod-laravel-api": {
+                "id": "cicd-ecs-prod-laravel-api",
+                "path": "cicd-vpc-ecs-laravel-api/cicd-ecs-prod-laravel-api/cicd-ecs-prod-laravel-api",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ECS::ClusterCapacityProviderAssociations",
+                  "aws:cdk:cloudformation:props": {
+                    "capacityProviders": [
+                      "FARGATE"
+                    ],
+                    "cluster": {
+                      "Ref": "cicdecsprodlaravelapi78E5E251"
+                    },
+                    "defaultCapacityProviderStrategy": []
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-ecs.CfnClusterCapacityProviderAssociations",
+                  "version": "1.180.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-ecs.Cluster",
+              "version": "1.180.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "cicd-vpc-ecs-laravel-api/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "cicd-vpc-ecs-laravel-api/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.180.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "cicd-vpc-ecs-laravel-api/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.180.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.180.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.180.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.180.0"
+    }
+  }
+}

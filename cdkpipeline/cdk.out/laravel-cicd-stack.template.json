@@ -1,0 +1,2092 @@
+{
+ "Resources": {
+  "laravelcodecommitid": {
+   "Type": "AWS::CodeCommit::Repository",
+   "Properties": {
+    "RepositoryName": "laravel",
+    "Code": {
+     "BranchName": "master",
+     "S3": {
+      "Bucket": "sheffield-fargate-emi",
+      "Key": "starter-code.zip"
+     }
+    },
+    "RepositoryDescription": "Repository for laravel"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codecommit-id"
+   }
+  },
+  "RepositorylaravelcicdstacklaravelcodepipelineidF2F0FA72EventRuleB5E98A05": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "EventPattern": {
+     "source": [
+      "aws.codecommit"
+     ],
+     "resources": [
+      {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":codecommit:eu-west-2:558464720572:laravel"
+        ]
+       ]
+      }
+     ],
+     "detail-type": [
+      "CodeCommit Repository State Change"
+     ],
+     "detail": {
+      "event": [
+       "referenceCreated",
+       "referenceUpdated"
+      ],
+      "referenceName": [
+       "master"
+      ]
+     }
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":codepipeline:eu-west-2:558464720572:",
+         {
+          "Ref": "laravelcodepipelineid30A74A60"
+         }
+        ]
+       ]
+      },
+      "Id": "Target0",
+      "RoleArn": {
+       "Fn::GetAtt": [
+        "laravelcodepipelineidEventsRole004FAF56",
+        "Arn"
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/Repository/laravelcicdstacklaravelcodepipelineidF2F0FA72EventRule/Resource"
+   }
+  },
+  "laravelecrrepoid5E56FB3D": {
+   "Type": "AWS::ECR::Repository",
+   "Properties": {
+    "RepositoryName": "laravel"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecrrepo-id/Resource"
+   }
+  },
+  "laravelecsroleidF092EF30": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+       ]
+      ]
+     }
+    ],
+    "RoleName": "laravel-ecs-taskexecution-role"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravelecsrole-id/Resource"
+   }
+  },
+  "laravelecsroleidDefaultPolicyACC462E0": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelecsfargateidTaskDefappLogGroupFB17129E",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelprodecsfargateidTaskDefappLogGroupC553E752",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelecsroleidDefaultPolicyACC462E0",
+    "Roles": [
+     {
+      "Ref": "laravelecsroleidF092EF30"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravelecsrole-id/DefaultPolicy/Resource"
+   }
+  },
+  "laravelecsfargateidLB8B1BF6F1": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "laravelecsfargateidLBSecurityGroupD880EB57",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     "subnet-04aca8bba739c4ca9",
+     "subnet-04224eb671562162c"
+    ],
+    "Type": "application"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/LB/Resource"
+   }
+  },
+  "laravelecsfargateidLBSecurityGroupD880EB57": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatically created Security Group for ELB laravelcicdstacklaravelecsfargateidLB11FA1982",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow from anyone on port 80",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     }
+    ],
+    "VpcId": "vpc-0005b0d8f1de17859"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/LB/SecurityGroup/Resource"
+   }
+  },
+  "laravelecsfargateidLBSecurityGrouptolaravelcicdstacklaravelecsfargateidServiceSecurityGroup9E8E79EC8014BCCD1A": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "GroupId": {
+     "Fn::GetAtt": [
+      "laravelecsfargateidLBSecurityGroupD880EB57",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "Description": "Load balancer to target",
+    "DestinationSecurityGroupId": {
+     "Fn::GetAtt": [
+      "laravelecsfargateidServiceSecurityGroup956E20FB",
+      "GroupId"
+     ]
+    },
+    "FromPort": 80,
+    "ToPort": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/LB/SecurityGroup/to laravelcicdstacklaravelecsfargateidServiceSecurityGroup9E8E79EC:80"
+   }
+  },
+  "laravelecsfargateidLBPublicListener49349605": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "laravelecsfargateidLBPublicListenerECSGroup49A7C986"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "laravelecsfargateidLB8B1BF6F1"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/LB/PublicListener/Resource"
+   }
+  },
+  "laravelecsfargateidLBPublicListenerECSGroup49A7C986": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "Port": 80,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "ip",
+    "VpcId": "vpc-0005b0d8f1de17859"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/LB/PublicListener/ECSGroup/Resource"
+   }
+  },
+  "laravelecsfargateidTaskDefTaskRole40C82FC1": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/TaskDef/TaskRole/Resource"
+   }
+  },
+  "laravelecsfargateidTaskDefA92BD2FE": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Essential": true,
+      "Image": "public.ecr.aws/b4f2s5k2/project-demo-reinvent/nginx-web-app:latest",
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "laravelecsfargateidTaskDefappLogGroupFB17129E"
+        },
+        "awslogs-stream-prefix": "laravel-ecs-fargate-id",
+        "awslogs-region": "eu-west-2"
+       }
+      },
+      "Name": "app",
+      "PortMappings": [
+       {
+        "ContainerPort": 80,
+        "Protocol": "tcp"
+       }
+      ]
+     }
+    ],
+    "Cpu": "256",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "laravelecsroleidF092EF30",
+      "Arn"
+     ]
+    },
+    "Family": "laravelcicdstacklaravelecsfargateidTaskDefD3779132",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "laravelecsfargateidTaskDefTaskRole40C82FC1",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/TaskDef/Resource"
+   }
+  },
+  "laravelecsfargateidTaskDefappLogGroupFB17129E": {
+   "Type": "AWS::Logs::LogGroup",
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/TaskDef/app/LogGroup/Resource"
+   }
+  },
+  "laravelecsfargateidServiceBD7F4F59": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": "cicd-ecs-nonprod-customers-api",
+    "DeploymentConfiguration": {
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DesiredCount": 2,
+    "EnableECSManagedTags": false,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "app",
+      "ContainerPort": 80,
+      "TargetGroupArn": {
+       "Ref": "laravelecsfargateidLBPublicListenerECSGroup49A7C986"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "laravelecsfargateidServiceSecurityGroup956E20FB",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       "subnet-069c2c0d57fa2df31",
+       "subnet-09dd12b67b315c563"
+      ]
+     }
+    },
+    "ServiceName": "laravel",
+    "TaskDefinition": {
+     "Ref": "laravelecsfargateidTaskDefA92BD2FE"
+    }
+   },
+   "DependsOn": [
+    "laravelecsfargateidLBPublicListenerECSGroup49A7C986",
+    "laravelecsfargateidLBPublicListener49349605"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/Service/Service"
+   }
+  },
+  "laravelecsfargateidServiceSecurityGroup956E20FB": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "laravel-cicd-stack/laravel-ecs-fargate-id/Service/SecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": "vpc-0005b0d8f1de17859"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/Service/SecurityGroup/Resource"
+   }
+  },
+  "laravelecsfargateidServiceSecurityGroupfromlaravelcicdstacklaravelecsfargateidLBSecurityGroup18D8F4D780B970971D": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "IpProtocol": "tcp",
+    "Description": "Load balancer to target",
+    "FromPort": 80,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "laravelecsfargateidServiceSecurityGroup956E20FB",
+      "GroupId"
+     ]
+    },
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "laravelecsfargateidLBSecurityGroupD880EB57",
+      "GroupId"
+     ]
+    },
+    "ToPort": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-ecs-fargate-id/Service/SecurityGroup/from laravelcicdstacklaravelecsfargateidLBSecurityGroup18D8F4D7:80"
+   }
+  },
+  "laravelprodecsfargateidLB1A1F98E0": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "laravelprodecsfargateidLBSecurityGroupCB1CFFFE",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     "subnet-02b1e920f7df95bb9",
+     "subnet-0aadb20a1abae1e7a"
+    ],
+    "Type": "application"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/LB/Resource"
+   }
+  },
+  "laravelprodecsfargateidLBSecurityGroupCB1CFFFE": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatically created Security Group for ELB laravelcicdstacklaravelprodecsfargateidLB971E8D8E",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow from anyone on port 80",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     }
+    ],
+    "VpcId": "vpc-0294f2ea0924365bd"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/LB/SecurityGroup/Resource"
+   }
+  },
+  "laravelprodecsfargateidLBSecurityGrouptolaravelcicdstacklaravelprodecsfargateidServiceSecurityGroupF7F389C18046463FE5": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "GroupId": {
+     "Fn::GetAtt": [
+      "laravelprodecsfargateidLBSecurityGroupCB1CFFFE",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "Description": "Load balancer to target",
+    "DestinationSecurityGroupId": {
+     "Fn::GetAtt": [
+      "laravelprodecsfargateidServiceSecurityGroup2F10FE0E",
+      "GroupId"
+     ]
+    },
+    "FromPort": 80,
+    "ToPort": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/LB/SecurityGroup/to laravelcicdstacklaravelprodecsfargateidServiceSecurityGroupF7F389C1:80"
+   }
+  },
+  "laravelprodecsfargateidLBPublicListener53E23E63": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "laravelprodecsfargateidLBPublicListenerECSGroupAFA821DA"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "laravelprodecsfargateidLB1A1F98E0"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/LB/PublicListener/Resource"
+   }
+  },
+  "laravelprodecsfargateidLBPublicListenerECSGroupAFA821DA": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "Port": 80,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "ip",
+    "VpcId": "vpc-0294f2ea0924365bd"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/LB/PublicListener/ECSGroup/Resource"
+   }
+  },
+  "laravelprodecsfargateidTaskDefTaskRoleC65F2106": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/TaskDef/TaskRole/Resource"
+   }
+  },
+  "laravelprodecsfargateidTaskDef278FCB29": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Essential": true,
+      "Image": "public.ecr.aws/b4f2s5k2/project-demo-reinvent/nginx-web-app:latest",
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "laravelprodecsfargateidTaskDefappLogGroupC553E752"
+        },
+        "awslogs-stream-prefix": "laravel-prod-ecs-fargate-id",
+        "awslogs-region": "eu-west-2"
+       }
+      },
+      "Name": "app",
+      "PortMappings": [
+       {
+        "ContainerPort": 80,
+        "Protocol": "tcp"
+       }
+      ]
+     }
+    ],
+    "Cpu": "256",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "laravelecsroleidF092EF30",
+      "Arn"
+     ]
+    },
+    "Family": "laravelcicdstacklaravelprodecsfargateidTaskDef80A7132A",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "laravelprodecsfargateidTaskDefTaskRoleC65F2106",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/TaskDef/Resource"
+   }
+  },
+  "laravelprodecsfargateidTaskDefappLogGroupC553E752": {
+   "Type": "AWS::Logs::LogGroup",
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/TaskDef/app/LogGroup/Resource"
+   }
+  },
+  "laravelprodecsfargateidService2C6EED8B": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": "cicd-ecs-prod-customers-api",
+    "DeploymentConfiguration": {
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DesiredCount": 2,
+    "EnableECSManagedTags": false,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "app",
+      "ContainerPort": 80,
+      "TargetGroupArn": {
+       "Ref": "laravelprodecsfargateidLBPublicListenerECSGroupAFA821DA"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "laravelprodecsfargateidServiceSecurityGroup2F10FE0E",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       "subnet-0a6415e171e0075d0",
+       "subnet-0b998ae9afb63250f"
+      ]
+     }
+    },
+    "ServiceName": "laravel",
+    "TaskDefinition": {
+     "Ref": "laravelprodecsfargateidTaskDef278FCB29"
+    }
+   },
+   "DependsOn": [
+    "laravelprodecsfargateidLBPublicListenerECSGroupAFA821DA",
+    "laravelprodecsfargateidLBPublicListener53E23E63"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/Service/Service"
+   }
+  },
+  "laravelprodecsfargateidServiceSecurityGroup2F10FE0E": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/Service/SecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": "vpc-0294f2ea0924365bd"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/Service/SecurityGroup/Resource"
+   }
+  },
+  "laravelprodecsfargateidServiceSecurityGroupfromlaravelcicdstacklaravelprodecsfargateidLBSecurityGroup51A3BDA780BE3A8293": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "IpProtocol": "tcp",
+    "Description": "Load balancer to target",
+    "FromPort": 80,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "laravelprodecsfargateidServiceSecurityGroup2F10FE0E",
+      "GroupId"
+     ]
+    },
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "laravelprodecsfargateidLBSecurityGroupCB1CFFFE",
+      "GroupId"
+     ]
+    },
+    "ToPort": 80
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-prod-ecs-fargate-id/Service/SecurityGroup/from laravelcicdstacklaravelprodecsfargateidLBSecurityGroup51A3BDA7:80"
+   }
+  },
+  "laravelcodebuildidRoleAB92BDF8": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codebuild-id/Role/Resource"
+   }
+  },
+  "laravelcodebuildidRoleDefaultPolicyB93BFECC": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:eu-west-2:558464720572:log-group:/aws/codebuild/",
+           {
+            "Ref": "laravelcodebuildid9F47F3AB"
+           }
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":logs:eu-west-2:558464720572:log-group:/aws/codebuild/",
+           {
+            "Ref": "laravelcodebuildid9F47F3AB"
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "codebuild:CreateReportGroup",
+        "codebuild:CreateReport",
+        "codebuild:UpdateReport",
+        "codebuild:BatchPutTestCases",
+        "codebuild:BatchPutCodeCoverages"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codebuild:eu-west-2:558464720572:report-group/",
+          {
+           "Ref": "laravelcodebuildid9F47F3AB"
+          },
+          "-*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelecrrepoid5E56FB3D",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "ecr:GetAuthorizationToken",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "ecr:PutImage",
+        "ecr:InitiateLayerUpload",
+        "ecr:UploadLayerPart",
+        "ecr:CompleteLayerUpload"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelecrrepoid5E56FB3D",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "codecommit:GitPull",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codecommit:eu-west-2:558464720572:laravel"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodebuildidRoleDefaultPolicyB93BFECC",
+    "Roles": [
+     {
+      "Ref": "laravelcodebuildidRoleAB92BDF8"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codebuild-id/Role/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodebuildid9F47F3AB": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Type": "CODEPIPELINE"
+    },
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_SMALL",
+     "EnvironmentVariables": [
+      {
+       "Name": "REPOSITORY_URI",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::Select": [
+            4,
+            {
+             "Fn::Split": [
+              ":",
+              {
+               "Fn::GetAtt": [
+                "laravelecrrepoid5E56FB3D",
+                "Arn"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          ".dkr.ecr.",
+          {
+           "Fn::Select": [
+            3,
+            {
+             "Fn::Split": [
+              ":",
+              {
+               "Fn::GetAtt": [
+                "laravelecrrepoid5E56FB3D",
+                "Arn"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          ".",
+          {
+           "Ref": "AWS::URLSuffix"
+          },
+          "/",
+          {
+           "Ref": "laravelecrrepoid5E56FB3D"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Image": "aws/codebuild/standard:1.0",
+     "ImagePullCredentialsType": "CODEBUILD",
+     "PrivilegedMode": true,
+     "Type": "LINUX_CONTAINER"
+    },
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "laravelcodebuildidRoleAB92BDF8",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"$(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)\",\n        \"docker build -t $REPOSITORY_URI:latest .\",\n        \"docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION\"\n      ]\n    },\n    \"post_build\": {\n      \"commands\": [\n        \"docker push $REPOSITORY_URI:latest\",\n        \"docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION\",\n        \"export imageTag=$CODEBUILD_RESOLVED_SOURCE_VERSION\",\n        \"printf '[{\\\"name\\\":\\\"app\\\",\\\"imageUri\\\":\\\"%s\\\"}]' $REPOSITORY_URI:$imageTag > imagedefinitions.json\"\n      ]\n    }\n  },\n  \"env\": {\n    \"exported-variables\": [\n      \"imageTag\"\n    ]\n  },\n  \"artifacts\": {\n    \"files\": \"imagedefinitions.json\",\n    \"secondary-artifacts\": {\n      \"imagedefinitions\": {\n        \"files\": \"imagedefinitions.json\",\n        \"name\": \"imagedefinitions\"\n      }\n    }\n  }\n}",
+     "Type": "CODEPIPELINE"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "EncryptionKey": {
+     "Fn::GetAtt": [
+      "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+      "Arn"
+     ]
+    },
+    "Name": "laravel"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codebuild-id/Resource"
+   }
+  },
+  "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/ArtifactsBucketEncryptionKey/Resource"
+   }
+  },
+  "laravelcodepipelineidArtifactsBucketEncryptionKeyAlias1003D503": {
+   "Type": "AWS::KMS::Alias",
+   "Properties": {
+    "AliasName": "alias/codepipeline-laravelcicdstacklaravelcodepipelineidf2f0fa72",
+    "TargetKeyId": {
+     "Fn::GetAtt": [
+      "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+      "Arn"
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/ArtifactsBucketEncryptionKeyAlias/Resource"
+   }
+  },
+  "laravelcodepipelineidArtifactsBucket6E2F1A5D": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "KMSMasterKeyID": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+          "Arn"
+         ]
+        },
+        "SSEAlgorithm": "aws:kms"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/ArtifactsBucket/Resource"
+   }
+  },
+  "laravelcodepipelineidArtifactsBucketPolicy6BD42448": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "laravelcodepipelineidArtifactsBucket6E2F1A5D"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/ArtifactsBucket/Policy/Resource"
+   }
+  },
+  "laravelcodepipelineidRole9DCA00B4": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codepipeline.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Role/Resource"
+   }
+  },
+  "laravelcodepipelineidRoleDefaultPolicyC5C42A14": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidSourceCodeCommitCodePipelineActionRole49547BD4",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidBuildCodeBuildCodePipelineActionRole3ECB2FD8",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRole10C460F9",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidDeployProdApproveProdDeployCodePipelineActionRoleB2ED0AE5",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRole7E755937",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidRoleDefaultPolicyC5C42A14",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidRole9DCA00B4"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Role/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodepipelineid30A74A60": {
+   "Type": "AWS::CodePipeline::Pipeline",
+   "Properties": {
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "laravelcodepipelineidRole9DCA00B4",
+      "Arn"
+     ]
+    },
+    "Stages": [
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Source",
+         "Owner": "AWS",
+         "Provider": "CodeCommit",
+         "Version": "1"
+        },
+        "Configuration": {
+         "RepositoryName": "laravel",
+         "BranchName": "master",
+         "PollForSourceChanges": false,
+         "OutputArtifactFormat": "CODEBUILD_CLONE_REF"
+        },
+        "Name": "CodeCommit",
+        "OutputArtifacts": [
+         {
+          "Name": "Artifact_Source_CodeCommit"
+         }
+        ],
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidSourceCodeCommitCodePipelineActionRole49547BD4",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       }
+      ],
+      "Name": "Source"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Build",
+         "Owner": "AWS",
+         "Provider": "CodeBuild",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ProjectName": {
+          "Ref": "laravelcodebuildid9F47F3AB"
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "Artifact_Source_CodeCommit"
+         }
+        ],
+        "Name": "CodeBuild",
+        "OutputArtifacts": [
+         {
+          "Name": "imagedefinitions"
+         }
+        ],
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidBuildCodeBuildCodePipelineActionRole3ECB2FD8",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       }
+      ],
+      "Name": "Build"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Deploy",
+         "Owner": "AWS",
+         "Provider": "ECS",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ClusterName": "cicd-ecs-nonprod-customers-api",
+         "ServiceName": {
+          "Fn::GetAtt": [
+           "laravelecsfargateidServiceBD7F4F59",
+           "Name"
+          ]
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "imagedefinitions"
+         }
+        ],
+        "Name": "DeployECS",
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRole10C460F9",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       }
+      ],
+      "Name": "Deploy-NonProd"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Approval",
+         "Owner": "AWS",
+         "Provider": "Manual",
+         "Version": "1"
+        },
+        "Name": "Approve-Prod-Deploy",
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidDeployProdApproveProdDeployCodePipelineActionRoleB2ED0AE5",
+          "Arn"
+         ]
+        },
+        "RunOrder": 1
+       },
+       {
+        "ActionTypeId": {
+         "Category": "Deploy",
+         "Owner": "AWS",
+         "Provider": "ECS",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ClusterName": "cicd-ecs-prod-customers-api",
+         "ServiceName": {
+          "Fn::GetAtt": [
+           "laravelprodecsfargateidService2C6EED8B",
+           "Name"
+          ]
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "imagedefinitions"
+         }
+        ],
+        "Name": "DeployECS",
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRole7E755937",
+          "Arn"
+         ]
+        },
+        "RunOrder": 2
+       }
+      ],
+      "Name": "Deploy-Prod"
+     }
+    ],
+    "ArtifactStore": {
+     "EncryptionKey": {
+      "Id": {
+       "Fn::GetAtt": [
+        "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+        "Arn"
+       ]
+      },
+      "Type": "KMS"
+     },
+     "Location": {
+      "Ref": "laravelcodepipelineidArtifactsBucket6E2F1A5D"
+     },
+     "Type": "S3"
+    },
+    "Name": "laravel"
+   },
+   "DependsOn": [
+    "laravelcodepipelineidRoleDefaultPolicyC5C42A14",
+    "laravelcodepipelineidRole9DCA00B4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Resource"
+   }
+  },
+  "laravelcodepipelineidSourceCodeCommitCodePipelineActionRole49547BD4": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Source/CodeCommit/CodePipelineActionRole/Resource"
+   }
+  },
+  "laravelcodepipelineidSourceCodeCommitCodePipelineActionRoleDefaultPolicy04C32D0A": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:DeleteObject*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging",
+        "s3:Abort*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "codecommit:GetBranch",
+        "codecommit:GetCommit",
+        "codecommit:UploadArchive",
+        "codecommit:GetUploadArchiveStatus",
+        "codecommit:CancelUploadArchive",
+        "codecommit:GetRepository"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codecommit:eu-west-2:558464720572:laravel"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidSourceCodeCommitCodePipelineActionRoleDefaultPolicy04C32D0A",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidSourceCodeCommitCodePipelineActionRole49547BD4"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Source/CodeCommit/CodePipelineActionRole/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodepipelineidEventsRole004FAF56": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "events.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/EventsRole/Resource"
+   }
+  },
+  "laravelcodepipelineidEventsRoleDefaultPolicyE3D85F19": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "codepipeline:StartPipelineExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":codepipeline:eu-west-2:558464720572:",
+          {
+           "Ref": "laravelcodepipelineid30A74A60"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidEventsRoleDefaultPolicyE3D85F19",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidEventsRole004FAF56"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/EventsRole/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodepipelineidBuildCodeBuildCodePipelineActionRole3ECB2FD8": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Build/CodeBuild/CodePipelineActionRole/Resource"
+   }
+  },
+  "laravelcodepipelineidBuildCodeBuildCodePipelineActionRoleDefaultPolicyD131684D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "codebuild:BatchGetBuilds",
+        "codebuild:StartBuild",
+        "codebuild:StopBuild"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodebuildid9F47F3AB",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidBuildCodeBuildCodePipelineActionRoleDefaultPolicyD131684D",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidBuildCodeBuildCodePipelineActionRole3ECB2FD8"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRole10C460F9": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Deploy-NonProd/DeployECS/CodePipelineActionRole/Resource"
+   }
+  },
+  "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRoleDefaultPolicy091045D3": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecs:DescribeServices",
+        "ecs:DescribeTaskDefinition",
+        "ecs:DescribeTasks",
+        "ecs:ListTasks",
+        "ecs:RegisterTaskDefinition",
+        "ecs:UpdateService"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "iam:PassRole",
+       "Condition": {
+        "StringEqualsIfExists": {
+         "iam:PassedToService": [
+          "ec2.amazonaws.com",
+          "ecs-tasks.amazonaws.com"
+         ]
+        }
+       },
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRoleDefaultPolicy091045D3",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidDeployNonProdDeployECSCodePipelineActionRole10C460F9"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Deploy-NonProd/DeployECS/CodePipelineActionRole/DefaultPolicy/Resource"
+   }
+  },
+  "laravelcodepipelineidDeployProdApproveProdDeployCodePipelineActionRoleB2ED0AE5": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Deploy-Prod/Approve-Prod-Deploy/CodePipelineActionRole/Resource"
+   }
+  },
+  "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRole7E755937": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::558464720572:root"
+          ]
+         ]
+        }
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Deploy-Prod/DeployECS/CodePipelineActionRole/Resource"
+   }
+  },
+  "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRoleDefaultPolicyCDABD65D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecs:DescribeServices",
+        "ecs:DescribeTaskDefinition",
+        "ecs:DescribeTasks",
+        "ecs:ListTasks",
+        "ecs:RegisterTaskDefinition",
+        "ecs:UpdateService"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "iam:PassRole",
+       "Condition": {
+        "StringEqualsIfExists": {
+         "iam:PassedToService": [
+          "ec2.amazonaws.com",
+          "ecs-tasks.amazonaws.com"
+         ]
+        }
+       },
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "s3:GetObject*",
+        "s3:GetBucket*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "laravelcodepipelineidArtifactsBucket6E2F1A5D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "laravelcodepipelineidArtifactsBucketEncryptionKeyD21D5A08",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRoleDefaultPolicyCDABD65D",
+    "Roles": [
+     {
+      "Ref": "laravelcodepipelineidDeployProdDeployECSCodePipelineActionRole7E755937"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/laravel-codepipeline-id/Deploy-Prod/DeployECS/CodePipelineActionRole/DefaultPolicy/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31S227CMAz9Ft5DgE2a9jjYTdOQhoAfCKnpvKZJlThMqMq/L0nLKNu0J58cH/vYSWZ8djvl09Gd+HRjWVSTVhoLvN2QkBVbgzPeSmD3e/3mqfHE7o12ZL2kxJ3ygaXyWFqANHWNxHOyMQ7J2CODA2hyvF17lXulGBhIG6mz6qImMBR1TJu+IsWVUSizrkOphRs3ggisdnzeNJEVhEYvjSgWQgktoXgSthQEG7AHjKuAEo5QqqjYZQXq8nDF27+rbXK7OA916Ah0rznhQX4bnYGerfFNkgyOafLouQHpLdLxW/I/8VhacO4X/aIzn2+Dt/26W+GqB9ijxjRJZ3/JGE0C48QD7sdVZaMMA1OmjM2Xpvwe7YQDS+++86gK3q6wARW7rqz5gO6T9LCTNX3+rMySHgdW1dHlFfIjpzBXKPLGGQTmrnm78LKC3LpHXTj/juE5hMBWR3o3enLNZ1N+M/pwiGPrNWENfN3FL7BS/8IHAwAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "laravel-cicd-stack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "laravelecsfargateidLoadBalancerDNS7EB4C267": {
+   "Value": {
+    "Fn::GetAtt": [
+     "laravelecsfargateidLB8B1BF6F1",
+     "DNSName"
+    ]
+   }
+  },
+  "laravelecsfargateidServiceURL7003E207": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "laravelecsfargateidLB8B1BF6F1",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  },
+  "laravelprodecsfargateidLoadBalancerDNS9D6BD78F": {
+   "Value": {
+    "Fn::GetAtt": [
+     "laravelprodecsfargateidLB1A1F98E0",
+     "DNSName"
+    ]
+   }
+  },
+  "laravelprodecsfargateidServiceURL00AD5299": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "laravelprodecsfargateidLB1A1F98E0",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,1094 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "laravel-api-cicd-stack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://558464720572/eu-west-2",
+      "properties": {
+        "templateFile": "laravel-api-cicd-stack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/laravel-api-cicd-stack/laravel-api-codecommit-id": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodecommitid",
+            "trace": [
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/Repository/laravelapicicdstacklaravelapicodepipelineid828C5336EventRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Repositorylaravelapicicdstacklaravelapicodepipelineid828C5336EventRule96402429",
+            "trace": [
+              "new Rule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events/lib/rule.js:43:26)",
+              "Import.onEvent (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:27:22)",
+              "Import.onStateChange (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:40:27)",
+              "Import.onReferenceUpdated (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:60:27)",
+              "Import.onCommit (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:101:27)",
+              "CodeCommitSourceAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codecommit/source-action.js:91:35)",
+              "CodeCommitSourceAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecrrepo-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecrrepoid0D901A7B",
+            "trace": [
+              "new Repository (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecr/lib/repository.js:225:26)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-apiecsrole-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsroleid2A426980",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-apiecsrole-id/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsroleidDefaultPolicy90DC793F",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Grant.addToPrincipal (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Grant.addToPrincipalOrResource (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "LogGroup.grant (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-logs/lib/log-group.js:90:26)",
+              "LogGroup.grantWrite (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-logs/lib/log-group.js:84:21)",
+              "AwsLogDriver.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/log-drivers/aws-log-driver.js:66:23)",
+              "new ContainerDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:135:50)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:277:16)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:50:51)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLBA3A0320F",
+            "trace": [
+              "new BaseLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-load-balancer.js:41:26)",
+              "new ApplicationLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:24:9)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:67:52)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLBSecurityGroupBEA96363",
+            "trace": [
+              "new SecurityGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:202:30)",
+              "new ApplicationLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:39:56)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:67:52)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LB/SecurityGroup/to laravelapicicdstacklaravelapiecsfargateidServiceSecurityGroupF6558615:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLBSecurityGrouptolaravelapicicdstacklaravelapiecsfargateidServiceSecurityGroupF655861580692E10B8",
+            "trace": [
+              "SecurityGroup.addEgressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:57:13)",
+              "SecurityGroup.addEgressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:377:19)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:98:31",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:97:51",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "Connections.allowTo (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:96:30)",
+              "Connections.allowFrom (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:137:31)",
+              "ApplicationListener.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:368:33)",
+              "ApplicationTargetGroup.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:166:22)",
+              "Object.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:356:29)",
+              "FargateService.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:309:47)",
+              "ApplicationTargetGroup.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:117:35)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:170:26)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:83:14)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLBPublicListener4C67F640",
+            "trace": [
+              "new BaseListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-listener.js:16:26)",
+              "new ApplicationListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:38:9)",
+              "ApplicationLoadBalancer.addListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:100:26)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:79:38)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLBPublicListenerECSGroup09CFD868",
+            "trace": [
+              "new TargetGroupBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-target-group.js:47:25)",
+              "new ApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:31:9)",
+              "ApplicationListener.addTargets (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:269:23)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:85:42)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidLoadBalancerDNSAD01BC7A",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:145:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidServiceURLDAD63DBE",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:146:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidTaskDefTaskRoleE1FE3AEC",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new TaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:97:43)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:20:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:37:35)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidTaskDef15792906",
+            "trace": [
+              "new TaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:111:25)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:20:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:37:35)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/TaskDef/laravel-api/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidTaskDeflaravelapiLogGroup2334F2B3",
+            "trace": [
+              "new LogGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-logs/lib/log-group.js:261:26)",
+              "AwsLogDriver.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/log-drivers/aws-log-driver.js:63:48)",
+              "new ContainerDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:135:50)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:277:16)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:50:51)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidServiceBCE14C0C",
+            "trace": [
+              "new BaseService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:134:25)",
+              "new FargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:41:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:65:24)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidServiceSecurityGroup898465EF",
+            "trace": [
+              "new SecurityGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:202:30)",
+              "FargateService.configureAwsVpcNetworkingWithSecurityGroups (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:587:31)",
+              "new FargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:59:14)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:65:24)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-ecs-fargate-id/Service/SecurityGroup/from laravelapicicdstacklaravelapiecsfargateidLBSecurityGroupCDBCBC80:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiecsfargateidServiceSecurityGroupfromlaravelapicicdstacklaravelapiecsfargateidLBSecurityGroupCDBCBC8080C60D0011",
+            "trace": [
+              "SecurityGroup.addIngressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:42:13)",
+              "SecurityGroup.addIngressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:338:19)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:131:31",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:130:51",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "Connections.allowFrom (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:129:30)",
+              "ApplicationListener.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:368:33)",
+              "ApplicationTargetGroup.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:166:22)",
+              "Object.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:356:29)",
+              "FargateService.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:309:47)",
+              "ApplicationTargetGroup.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:117:35)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:170:26)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:83:14)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLBD82C3BE4",
+            "trace": [
+              "new BaseLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-load-balancer.js:41:26)",
+              "new ApplicationLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:24:9)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:67:52)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLBSecurityGroup6B6B2F8E",
+            "trace": [
+              "new SecurityGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:202:30)",
+              "new ApplicationLoadBalancer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:39:56)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:67:52)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LB/SecurityGroup/to laravelapicicdstacklaravelapiprodecsfargateidServiceSecurityGroup62B27DB7:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLBSecurityGrouptolaravelapicicdstacklaravelapiprodecsfargateidServiceSecurityGroup62B27DB780D4D2FC4B",
+            "trace": [
+              "SecurityGroup.addEgressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:57:13)",
+              "SecurityGroup.addEgressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:377:19)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:98:31",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:97:51",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "Connections.allowTo (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:96:30)",
+              "Connections.allowFrom (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:137:31)",
+              "ApplicationListener.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:368:33)",
+              "ApplicationTargetGroup.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:166:22)",
+              "Object.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:356:29)",
+              "FargateService.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:309:47)",
+              "ApplicationTargetGroup.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:117:35)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:170:26)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:83:14)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLBPublicListener1534C7E4",
+            "trace": [
+              "new BaseListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-listener.js:16:26)",
+              "new ApplicationListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:38:9)",
+              "ApplicationLoadBalancer.addListener (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:100:26)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:79:38)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLBPublicListenerECSGroupA4889319",
+            "trace": [
+              "new TargetGroupBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/shared/base-target-group.js:47:25)",
+              "new ApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:31:9)",
+              "ApplicationListener.addTargets (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:269:23)",
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:85:42)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidLoadBalancerDNSFBB92535",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:145:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidServiceURLB5E06401",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:146:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:18:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidTaskDefTaskRole009E1E74",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new TaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:97:43)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:20:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:37:35)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidTaskDef3BC9FF77",
+            "trace": [
+              "new TaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:111:25)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:20:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:37:35)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/TaskDef/laravel-api/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidTaskDeflaravelapiLogGroup1D223601",
+            "trace": [
+              "new LogGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-logs/lib/log-group.js:261:26)",
+              "AwsLogDriver.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/log-drivers/aws-log-driver.js:63:48)",
+              "new ContainerDefinition (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:135:50)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:277:16)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:50:51)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidServiceB03452FF",
+            "trace": [
+              "new BaseService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:134:25)",
+              "new FargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:41:9)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:65:24)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidServiceSecurityGroupA4124407",
+            "trace": [
+              "new SecurityGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:202:30)",
+              "FargateService.configureAwsVpcNetworkingWithSecurityGroups (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:587:31)",
+              "new FargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:59:14)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:65:24)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-prod-ecs-fargate-id/Service/SecurityGroup/from laravelapicicdstacklaravelapiprodecsfargateidLBSecurityGroup91F36637:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapiprodecsfargateidServiceSecurityGroupfromlaravelapicicdstacklaravelapiprodecsfargateidLBSecurityGroup91F3663780AD356606",
+            "trace": [
+              "SecurityGroup.addIngressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:42:13)",
+              "SecurityGroup.addIngressRule (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:338:19)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:131:31",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:130:51",
+              "ReactiveList.forEachAndForever (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:289:13)",
+              "Connections.allowFrom (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ec2/lib/connections.js:129:30)",
+              "ApplicationListener.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-listener.js:368:33)",
+              "ApplicationTargetGroup.registerConnectable (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:166:22)",
+              "Object.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:356:29)",
+              "FargateService.attachToApplicationTargetGroup (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:309:47)",
+              "ApplicationTargetGroup.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:117:35)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:170:26)",
+              "new ApplicationLoadBalancedFargateService (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:83:14)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codebuild-id/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodebuildidRole737E8682",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Project (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/project.js:275:35)",
+              "new PipelineProject (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codebuild-id/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodebuildidRoleDefaultPolicyB8ACDE01",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "PipelineProject.addToRolePolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/project.js:56:23)",
+              "new Project (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/project.js:360:14)",
+              "new PipelineProject (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codebuild-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodebuildidA1638EC9",
+            "trace": [
+              "new Project (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/project.js:317:26)",
+              "new PipelineProject (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codebuild/lib/pipeline-project.js:15:9)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidArtifactsBucketEncryptionKey3D23CAD1",
+            "trace": [
+              "new Key (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-kms/lib/key.js:302:26)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:167:33)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidArtifactsBucketEncryptionKeyAliasF835B813",
+            "trace": [
+              "new Alias (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-kms/lib/alias.js:83:26)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:174:17)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidArtifactsBucketF37724AC",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:666:26)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidArtifactsBucketPolicyF0C25F75",
+            "trace": [
+              "new BucketPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:45:25)",
+              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:169:27)",
+              "Bucket.enforceSSLStatement (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:929:14)",
+              "new Bucket (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:703:18)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:180:27)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidRoleE7355A4C",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:191:35)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidRoleDefaultPolicy33D7936E",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Grant.addToPrincipal (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Grant.addToPrincipalOrResource (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Bucket.grant (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
+              "Bucket.grantReadWrite (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:335:21)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:205:29)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineid6A82C5B3",
+            "trace": [
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:194:29)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Source/CodeCommit/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidSourceCodeCommitCodePipelineActionRole8920935A",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Source/CodeCommit/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidSourceCodeCommitCodePipelineActionRoleDefaultPolicy1F010A9B",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Grant.addToPrincipal (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:102:65)",
+              "Grant.addToPrincipalOrResource (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/grant.js:50:30)",
+              "Bucket.grant (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:487:31)",
+              "Bucket.grantReadWrite (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-s3/lib/bucket.js:335:21)",
+              "CodeCommitSourceAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codecommit/source-action.js:100:24)",
+              "CodeCommitSourceAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidEventsRole89825BBA",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Object.singletonEventRole (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events-targets/lib/util.js:39:18)",
+              "CodePipeline.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events-targets/lib/codepipeline.js:27:55)",
+              "Rule.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events/lib/rule.js:102:36)",
+              "Import.onEvent (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:32:14)",
+              "Import.onStateChange (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:40:27)",
+              "Import.onReferenceUpdated (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:60:27)",
+              "Import.onCommit (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:101:27)",
+              "CodeCommitSourceAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codecommit/source-action.js:91:35)",
+              "CodeCommitSourceAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidEventsRoleDefaultPolicy0948F04E",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "CodePipeline.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events-targets/lib/codepipeline.js:28:14)",
+              "Rule.addTarget (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-events/lib/rule.js:102:36)",
+              "Import.onEvent (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:32:14)",
+              "Import.onStateChange (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:40:27)",
+              "Import.onReferenceUpdated (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:60:27)",
+              "Import.onCommit (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codecommit/lib/repository.js:101:27)",
+              "CodeCommitSourceAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codecommit/source-action.js:91:35)",
+              "CodeCommitSourceAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Build/CodeBuild/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidBuildCodeBuildCodePipelineActionRole47F8ACDA",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Build/CodeBuild/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidBuildCodeBuildCodePipelineActionRoleDefaultPolicy462426D7",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "CodeBuildAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/codebuild/build-action.js:82:22)",
+              "CodeBuildAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Deploy-NonProd/DeployECS/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidDeployNonProdDeployECSCodePipelineActionRole33CB16E1",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Deploy-NonProd/DeployECS/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidDeployNonProdDeployECSCodePipelineActionRoleDefaultPolicyE52966F6",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "EcsDeployAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/ecs/deploy-action.js:43:22)",
+              "EcsDeployAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Deploy-Prod/Approve-Prod-Deploy/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidDeployProdApproveProdDeployCodePipelineActionRole2E3D1FE8",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Deploy-Prod/DeployECS/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidDeployProdDeployECSCodePipelineActionRole98207742",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:63:22)",
+              "Pipeline.getRoleForAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:474:26)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:320:33)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/laravel-api-codepipeline-id/Deploy-Prod/DeployECS/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "laravelapicodepipelineidDeployProdDeployECSCodePipelineActionRoleDefaultPolicyFE451351",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/policy.js:57:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:247:34)",
+              "Role.addToPolicy (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-iam/lib/role.js:267:21)",
+              "EcsDeployAction.bound (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline-actions/lib/ecs/deploy-action.js:43:22)",
+              "EcsDeployAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/action.js:88:21)",
+              "RichAction.bind (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/rich-action.js:25:28)",
+              "Pipeline._attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:324:41)",
+              "Stage.attachActionToPipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:126:31)",
+              "Stage.addAction (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:73:33)",
+              "new Stage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/private/stage.js:30:18)",
+              "Pipeline.addStage (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:261:23)",
+              "new Pipeline (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/aws-codepipeline/lib/pipeline.js:221:18)",
+              "Kernel._create (/tmp/tmp5930cumv/lib/program.js:8029:29)",
+              "Kernel.create (/tmp/tmp5930cumv/lib/program.js:7764:29)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ],
+        "/laravel-api-cicd-stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-lmMKrx/node_modules/@aws-cdk/core/lib/stage.js:104:41)",
+              "/tmp/tmp5930cumv/lib/program.js:7840:105",
+              "Kernel._ensureSync (/tmp/tmp5930cumv/lib/program.js:8423:28)",
+              "Kernel.invoke (/tmp/tmp5930cumv/lib/program.js:7840:34)",
+              "KernelHost.processRequest (/tmp/tmp5930cumv/lib/program.js:11017:36)",
+              "KernelHost.run (/tmp/tmp5930cumv/lib/program.js:10977:22)",
+              "Immediate._onImmediate (/tmp/tmp5930cumv/lib/program.js:10978:46)",
+              "process.processImmediate (node:internal/timers:471:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "laravel-api-cicd-stack"
+    }
+  }
+}
